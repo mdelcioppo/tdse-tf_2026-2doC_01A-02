@@ -1,3 +1,4 @@
+
 <p align="center">
   <img src="https://www.fi.uba.ar/images/logo-fiuba.png" alt="Logo FIUBA" width="40%">
 </p>
@@ -147,6 +148,7 @@ A continuación se presentan 4 casos de usos que creemos de relevancia para dar 
 | **Disparador** | El usuario desea guardar un perfil personalizado de temperatura/tiempo o el sistema recupera la configuración al encender. |
 | **Precondiciones** | El sistema está encendido. La memoria **EEPROM / Flash interna** está inicializada. |
 | **Flujo Principal** | 1. Desde el menú en la pantalla LCD (o desde la App), el usuario selecciona "Guardar Receta #1".<br>2. El sistema toma los valores actuales de temperatura, tiempo y fuente de calor y los escribe mediante bus I2C en la EEPROM no volátil.<br>3. El sistema confirma la persistencia guardada mostrando un mensaje en pantalla y un pitido del **Buzzer**.<br>4. Ante un eventual reinicio, el sistema lee la EEPROM durante la secuencia de arranque y carga los valores predeterminados. |
+|**Flujos Alternativos**| **a. Error en la comunicación I2C/Flash:** Si falla la escritura en memoria no volátil, el sistema muestra un mensaje de error en la pantalla LCD ("Error Memoria"), emite un tono de falla en el Buzzer y mantiene los valores actuales en RAM sin sobrescribir el registro previo.
 <p align="center"><em>Tabla 2.2.4: Caso de Uso 3 del proyecto.</em></p>
 
 #### **Caso de Uso 4: Interrupción remota de emergencia del proceso de cocción**
