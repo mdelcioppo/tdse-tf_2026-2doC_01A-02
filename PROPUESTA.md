@@ -6,7 +6,7 @@
 
 **Autores:** Matías Del Cioppo, Luciano Andrés Ferrua y Lautaro Ignacio Franco  
 **Padrones:** 107453, 109609, 112572  
-**Fecha:** 2do cuatrimestre 2026  
+**Fecha:** 2do cuatrimestre 2026 - 30/10/2026
 **Curso / Grupo:** Curso 1 - Grupo 02  
 
 ---
@@ -55,7 +55,7 @@ Para la selección del proyecto se utilizaron los criterios numerados previament
 | Costo (peso: 5) | 7 \| 35 | 9 \| 45 | 9 \| 45 |
 | Interés Personal (peso: 8) | 10 \| 80 | 6 \| 48 | 4 \| 32 |
 | **Puntaje Total** | **439** | **354** | **314** |
-<p align="center"><em>Tabla 1.1: Comparación de alternativas de proyectos.</em></p>
+<p align="center"><em>Tabla 1.2.1: Comparación de alternativas de proyectos.</em></p>
 ---
 
 ### 1.3 Selección de proyecto
@@ -63,7 +63,7 @@ Para la selección del proyecto se utilizaron los criterios numerados previament
 De acuerdo con la ponderación de la Tabla 1.2.1, se eligió implementar el **Horno Inteligente Completo con STM32**. Esta alternativa aprovecha los periféricos de la placa STM32 (ADC, Timers/PWM, UART, I2C/SPI, GPIOs) e integra la lógica de control en un sistema alimentado por eventos (*Event-Triggered System*).
 
 #### **1.3.1 Diagrama en bloques del sistema**
-
+Para modelar las conexiones de periféricos con el microcontrolador, así cómo también para ejemplificar para el lector los diferentes componentes del prototipo, se diseño el siguiente diagrama en bloques del sistema: 
 <img width="3458" height="1921" alt="diagrama_bloques_horno (1)" src="https://github.com/user-attachments/assets/1dbccc7c-bedc-4c05-a0a4-22f0845af83c" />
 <p align="center"><em>Figura 1.1: Ilustración del diagrama en bloques del horno eléctrico.</em></p>
 ---
@@ -93,6 +93,7 @@ El **Sistema Controlador de Horno Eléctrico Inteligente** diseñado sobre la pl
 * **Autonomía y Persistencia Local (EEPROM / Flash):** A diferencia de las soluciones comerciales que dependen de servidores en la nube, el sistema almacena las recetas y perfiles de cocción de múltiples etapas directamente en la memoria **EEPROM externa (I2C) o Flash interna**. La curva térmica se ejecuta de forma autónoma sin riesgo de interrupción si se pierde la conexión Bluetooth.
 * **Interfaz de Usuario Híbrida y Accesible:** Combina un panel local completo (pantalla LCD 2x16/20x4, teclado matricial, potenciómetro analógico y **Dip Switches** para selección inmediata del modo de calor) con control y monitoreo remoto a través del módulo **HM-10 (BLE)**. El usuario mantiene el control absoluto tanto en modo manual como remoto.
 * **Arquitectura de Tiempo Real No Bloqueante (*Bare Metal*):** Su estructura basada en un sistema alimentado por eventos (*Event-Triggered System*), *Super-Loop* y *Tick* de 1 ms garantiza el procesamiento en tiempo real sin bloqueos, permitiendo un control térmico preciso, gestión inmediata de alarmas de seguridad con el **Buzzer** y la adición de periféricos por buses estándar (I2C, SPI, UART).
+* **Precio**: Los ejemplos comerciales nombrados, se encuentran entre los de precio más elevado para hornos de esas características debido a la posibilidad de interacción mediante WiFi o Bluetooth. El diseño de controlador presentado por el grupo 02, intenta **reducir costos, manteniendo y ampliando** las funcionalidades que hoy por hoy ofrece el mercado.
 
 Es decir que si bien se presenta un mercado competitivo en términos de alternativas, el diseño propio cuenta con ventajas a explotar y tiene una inserción posible en la industria debido a que no todas las funcionalidades propuestas están siendo ofrecidas por otras marcas o por lo menos no de manera conjunta como lo haría nuestro prototipo.
 
