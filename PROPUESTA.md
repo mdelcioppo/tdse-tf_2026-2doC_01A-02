@@ -65,7 +65,9 @@ De acuerdo con la ponderación de la Tabla 1.2.1, se eligió implementar el **Ho
 
 #### **1.3.1 Diagrama en bloques del sistema**
 Para modelar las conexiones de periféricos con el microcontrolador, así cómo también para ejemplificar para el lector los diferentes componentes del prototipo, se diseño el siguiente diagrama en bloques del sistema: 
-<img width="3458" height="1921" alt="diagrama_bloques_horno (1)" src="https://github.com/user-attachments/assets/1dbccc7c-bedc-4c05-a0a4-22f0845af83c" />
+
+<img width="3458" height="1921" alt="diagrama_bloques_horno (3)" src="https://github.com/user-attachments/assets/4c9901c3-7dfb-4d2d-985d-3899f02ff0b0" />
+
 <p align="center"><em>Figura 1.1: Ilustración del diagrama en bloques del horno eléctrico.</em></p>
 ---
 
