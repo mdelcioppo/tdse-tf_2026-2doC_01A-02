@@ -115,6 +115,41 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 | **Arquitectura de Firmware**| **6.1** | El firmware se desarrollará bajo esquema *Bare Metal* sin RTOS, como un sistema guiado por eventos (*Event-Triggered System*) con ciclo principal (*Super-Loop*) y *Tick* de 1 ms. |
 <p align="center"><em>Tabla 2.1: Requisitos del proyecto.</em></p>
 
+<p align="center"><em>Tabla 2.2: Tabla desarrolada: Requisitos funcionales y del sistema.</em></p>
+
+| Grupo | ID | Descripción |
+| :--- | :--- | :--- |
+| **Sensores** | 1.1 | El sistema medirá periódicamente la temperatura interna del horno mediante un sensor térmico (NTC / Termocupla) conectado al ADC o SPI del STM32. |
+| | 1.2 | El sistema utilizará un potenciómetro analógico (ADC) para el ajuste fino de intensidad de luz interna o de parámetros numéricos. |
+| **Interfaz LCD** | 2.1 | El sistema contará con una pantalla LCD (2x16 / 20x4) para visualización del menú navegable. |
+| | 2.2 | El sistema mostrará en el LCD una pantalla de bienvenida y estado en reposo (`IDLE`) al encender. |
+| | 2.3 | El sistema mostrará en el LCD la temperatura actual medida y la temperatura objetivo durante el proceso de cocción. |
+| | 2.4 | El sistema mostrará en el LCD el tiempo restante del temporizador de cocción. |
+| | 2.5 | El sistema mostrará un mensaje de alerta explícito en el LCD cuando ocurra una sobretemperatura o falla. |
+| **Entradas / Controles**| 3.1 | El sistema contará con un teclado matricial/botones (`Enter`, `Next`, `Escape`) para la navegación del menú y confirmación de valores. |
+| | 3.2 | El sistema implementará filtrado de antirrebote (*debounce*) por software para todos los botones de entrada. |
+| | 3.3 | El sistema contará con un bloque de **Dip Switches** para la selección directa e instantánea de la fuente de calor (Superior, Inferior, Ambas, Convección). |
+| **Indicadores Luminosos**| 4.1 | El sistema contará con un LED indicador para señalar el estado de encendido/reposo (`IDLE`). |
+| | 4.2 | El sistema contará con un LED indicador para señalar que las resistencias de calentamiento están activas (`HEATING`). |
+| | 4.3 | El sistema contará con un LED indicador para señalar que el horno alcanzó la temperatura objetivo (`SETPOINT OK`). |
+| | 4.4 | El sistema notificará condiciones de alarma o falla de seguridad mediante el titileo intermitente de los LEDs indicadores. |
+| **Actuadores y Potencia** | 5.1 | El sistema controlará las resistencias de calentamiento (Superior/Inferior) mediante salidas digitales (GPIO) hacia relés/MOSFETs. |
+| | 5.2 | El sistema aplicará modulación por ancho de pulso (**PWM**) para la regulación dimérica de la luz interna del horno. |
+| **Buzzer / Audio** | 6.1 | El sistema contará con un **Buzzer** para emitir un tono breve al presionar cualquier tecla del panel local. |
+| | 6.2 | El sistema emitirá una melodía corta con el Buzzer al confirmar la selección de un menú o inicio de cocción. |
+| | 6.3 | El sistema emitirá un patrón sonoro repetitivo con el Buzzer al finalizar el tiempo del temporizador de cocción. |
+| | 6.4 | El sistema emitirá un tono continuo de advertencia acústica cuando se detecte sobretemperatura o estado de **FALLA**. |
+| **Comunicación BLE** | 7.1 | El sistema se comunicará mediante el módulo **HM-10** (UART) con la aplicación móvil. |
+| | 7.2 | El sistema enviará periódicamente a la App la lectura de temperatura interna y el estado del temporizador. |
+| | 7.3 | El sistema podrá recibir desde la App comandos de inicio, pausa y parada de emergencia de la cocción. |
+| | 7.4 | El sistema podrá recibir desde la App perfiles o parámetros de recetas predefinidas. |
+| | 7.5 | El sistema notificará a la App cuando se produzca una alarma de sobretemperatura o cancelación. |
+| **Persistencia (EEPROM)**| 8.1 | El sistema almacenará la configuración de recetas de usuario en memoria **EEPROM externa** (vía bus I2C) o Flash interna. |
+| | 8.2 | El sistema recuperará la última configuración válida almacenada en la EEPROM durante la secuencia de inicio de firmware. |
+| **Arquitectura Firmware**| 9.1 | El firmware se estructurará de forma modular (*Bare Metal*) bajo el patrón *Super-Loop* (escuchar/procesar/actuar). |
+| | 9.2 | El sistema utilizará una base de tiempo estricta (*System Tick* de 1 ms) para la ejecución no bloqueante de tareas temporizadas. |
+| | 9.3 | La lógica de control principal se organizará mediante máquinas de estados finitos (*FSM*). |
+
 ---
 
 ### 2.2 Casos de uso
