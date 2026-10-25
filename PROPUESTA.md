@@ -6,7 +6,7 @@
 
 **Autores:** Matías Del Cioppo, Luciano Andrés Ferrua y Lautaro Ignacio Franco  
 **Padrones:** 107453, 109609, 112572  
-**Fecha:** 2do cuatrimestre 2026 - 30/10/2026
+**Fecha:** 2do cuatrimestre 2026 - 30/10/2026  
 **Curso / Grupo:** Curso 1 - Grupo 02  
 
 ---
