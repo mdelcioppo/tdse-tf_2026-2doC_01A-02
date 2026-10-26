@@ -137,16 +137,15 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 | | 4.4 | El sistema notificará condiciones de alarma o falla de seguridad mediante el titileo intermitente de los LEDs indicadores. |
 | **Actuadores y Potencia** | 5.1 | El sistema controlará las resistencias de calentamiento (Superior/Inferior) mediante salidas digitales (GPIO) hacia relés/MOSFETs. |
 | | 5.2 | El sistema aplicará modulación por ancho de pulso (**PWM**) para la regulación dimérica de la luz interna del horno. |
-| **Buzzer / Audio** | 6.1 | El sistema contará con un **Buzzer** para emitir un tono breve al presionar cualquier tecla del panel local. |
-| | 6.2 | El sistema emitirá una melodía corta con el Buzzer al confirmar la selección de un menú o inicio de cocción. |
-| | 6.3 | El sistema emitirá un patrón sonoro repetitivo con el Buzzer al finalizar el tiempo del temporizador de cocción. |
-| | 6.4 | El sistema emitirá un tono continuo de advertencia acústica cuando se detecte sobretemperatura o estado de **FALLA**. |
+| **Buzzer** | | 6.1 | El sistema emitirá una melodía corta con el Buzzer al confirmar la selección de un menú o inicio de cocción. |
+| | 6.2 | El sistema emitirá un patrón sonoro repetitivo con el Buzzer al finalizar el tiempo del temporizador de cocción. |
+| | 6.3 | El sistema emitirá un tono continuo de advertencia acústica cuando se detecte sobretemperatura o estado de **FALLA**. |
 | **Comunicación BLE** | 7.1 | El sistema se comunicará mediante el módulo **HM-10** (UART) con la aplicación móvil. |
 | | 7.2 | El sistema enviará periódicamente a la App la lectura de temperatura interna y el estado del temporizador. |
 | | 7.3 | El sistema podrá recibir desde la App comandos de inicio, pausa y parada de emergencia de la cocción. |
 | | 7.4 | El sistema podrá recibir desde la App perfiles o parámetros de recetas predefinidas. |
 | | 7.5 | El sistema notificará a la App cuando se produzca una alarma de sobretemperatura o cancelación. |
-| **Persistencia (EEPROM)**| 8.1 | El sistema almacenará la configuración de recetas de usuario en memoria **EEPROM externa** (vía bus I2C) o Flash interna. |
+| **Memoria (EEPROM/FLASH)**| 8.1 | El sistema almacenará la configuración de recetas de usuario en memoria **EEPROM externa** (vía bus I2C) o Flash interna. |
 | | 8.2 | El sistema recuperará la última configuración válida almacenada en la EEPROM durante la secuencia de inicio de firmware. |
 | **Arquitectura Firmware**| 9.1 | El firmware se estructurará de forma modular (*Bare Metal*) bajo el patrón *Super-Loop* (escuchar/procesar/actuar). |
 | | 9.2 | El sistema utilizará una base de tiempo estricta (*System Tick* de 1 ms) para la ejecución no bloqueante de tareas temporizadas. |
