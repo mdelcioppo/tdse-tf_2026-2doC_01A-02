@@ -69,7 +69,7 @@ Para modelar las conexiones de periféricos con el microcontrolador, así cómo 
 <img width="3458" height="1921" alt="diagrama_bloques_horno (3)" src="https://github.com/user-attachments/assets/4c9901c3-7dfb-4d2d-985d-3899f02ff0b0" />
 
 <p align="center"><em>Figura 1.1: Ilustración del diagrama en bloques del horno eléctrico.</em></p>
----
+
 
 ## 2. Elicitación de requisitos y casos de uso
 
