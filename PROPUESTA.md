@@ -48,7 +48,7 @@ Para la selección del proyecto se establecieron 6 criterios característicos po
 Para la selección del proyecto se utilizaron los criterios numerados previamente y se evaluaron de la siguiente manera:
 | Criterio | Horno Inteligente STM32 (Seleccionado) | Controlador Básico STM32 | Termostato Básico Arduino |
 | :--- | :---: | :---: | :---: |
-| **Puntaje / P. Ponderado** | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** |
+| | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** |
 | Disponibilidad de Hardware (peso: 10) | 10 \| 100 | 10 \| 100 | 10 \| 100 |
 | Calidad de Experiencia de Usuario (peso: 8) | 10 \| 80 | 5 \| 40 | 4 \| 32 |
 | Escalabilidad y Flexibilidad (peso: 8) | 9 \| 72 | 5 \| 40 | 3 \| 24 |
