@@ -57,7 +57,7 @@ Para la selección del proyecto se utilizaron los criterios numerados previament
 | Interés Personal (peso: 8) | 10 \| 80 | 6 \| 48 | 4 \| 32 |
 | **Puntaje Total** | **439** | **354** | **314** |
 <p align="center"><em>Tabla 1.2.1: Comparación de alternativas de proyectos.</em></p>
----
+
 
 ### 1.3 Selección de proyecto
 
