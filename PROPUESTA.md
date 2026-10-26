@@ -39,7 +39,7 @@ Para la selección del proyecto se establecieron 6 criterios característicos po
 
 * **Disponibilidad del hardware (Peso: 10):** Componentes obtenibles localmente en el mercado regional.
 * **Calidad de la experiencia de usuario (Peso: 8):** Riqueza del menú local, interfaz remota por App y alertas.
-* **Escalabilidad y flexibilidad (Peso: 8):** Capacidad de agregar nuevos modos de cocción o integrar periféricos por buses estándar (I2C/SPI/UART).
+* **Escalabilidad, adaptabilidad y flexibilidad (Peso: 8):** Capacidad de agregar nuevos modos de cocción o integrar periféricos por buses estándar (I2C/SPI/UART) y/o poder ser acoplable a tecnología existente.
 * **Dificultad técnica / Viabilidad (Peso: 9):** Integración con la arquitectura de la materia (*Bare Metal*, *Event-Triggered System*, *Super-Loop* sin bloqueos).
 * **Costo (Peso: 5):** Accesibilidad económica de los módulos.
 * **Interés personal del grupo (Peso: 8):** Motivación por aplicar los conocimientos del curso en un electrodoméstico de uso cotidiano.
@@ -51,7 +51,7 @@ Para la selección del proyecto se utilizaron los criterios numerados previament
 | **Criterio**| **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** |
 | Disponibilidad de Hardware (peso: 10) | 10 \| 100 | 10 \| 100 | 10 \| 100 |
 | Calidad de Experiencia de Usuario (peso: 8) | 10 \| 80 | 5 \| 40 | 4 \| 32 |
-| Escalabilidad y Flexibilidad (peso: 8) | 9 \| 72 | 5 \| 40 | 3 \| 24 |
+| Escalabilidad, Adaptabilidad  y Flexibilidad (peso: 8) | 9 \| 72 | 5 \| 40 | 3 \| 24 |
 | Dificultad Técnica / Viabilidad (peso: 9) | 8 \| 72 | 9 \| 81 | 9 \| 81 |
 | Costo (peso: 5) | 7 \| 35 | 9 \| 45 | 9 \| 45 |
 | Interés Personal (peso: 8) | 10 \| 80 | 6 \| 48 | 4 \| 32 |
