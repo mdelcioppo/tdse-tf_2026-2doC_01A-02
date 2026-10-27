@@ -136,7 +136,7 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 | | 4.4 | El sistema notificará condiciones de alarma o falla de seguridad mediante el titileo intermitente de los LEDs indicadores. |
 | **Actuadores y Potencia** | 5.1 | El sistema controlará las resistencias de calentamiento (Superior/Inferior) mediante salidas digitales (GPIO) hacia relés/MOSFETs. |
 | | 5.2 | El sistema aplicará modulación por ancho de pulso (**PWM**) para la regulación dimérica de la luz interna del horno. |
-| **Buzzer** | | 6.1 | El sistema emitirá una melodía corta con el Buzzer al confirmar la selección de un menú o inicio de cocción. |
+| **Buzzer** | 6.1 | El sistema emitirá una melodía corta con el Buzzer al confirmar la selección de un menú o inicio de cocción. |
 | | 6.2 | El sistema emitirá un patrón sonoro repetitivo con el Buzzer al finalizar el tiempo del temporizador de cocción. |
 | | 6.3 | El sistema emitirá un tono continuo de advertencia acústica cuando se detecte sobretemperatura o estado de **FALLA**. |
 | **Comunicación BLE** | 7.1 | El sistema se comunicará mediante el módulo **HM-10** (UART) con la aplicación móvil. |
