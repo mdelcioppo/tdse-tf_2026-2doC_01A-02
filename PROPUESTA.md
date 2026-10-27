@@ -117,7 +117,6 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 | **Arquitectura de Firmware**| **6.1** | El firmware se desarrollará bajo esquema *Bare Metal* sin RTOS, como un sistema guiado por eventos (*Event-Triggered System*) con ciclo principal (*Super-Loop*) y *Tick* de 1 ms. |
 <p align="center"><em>Tabla 2.1: Requisitos del proyecto.</em></p>
 
-<p align="center"><em>Tabla 2.2: Tabla desarrolada: Requisitos funcionales y del sistema.</em></p>
 
 | Grupo | ID | Descripción |
 | :--- | :--- | :--- |
@@ -150,6 +149,8 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 | **Arquitectura Firmware**| 9.1 | El firmware se estructurará de forma modular (*Bare Metal*) bajo el patrón *Super-Loop* (escuchar/procesar/actuar). |
 | | 9.2 | El sistema utilizará una base de tiempo estricta (*System Tick* de 1 ms) para la ejecución no bloqueante de tareas temporizadas. |
 | | 9.3 | La lógica de control principal se organizará mediante máquinas de estados finitos (*FSM*). |
+
+<p align="center"><em>Tabla 2.2: Tabla desarrolada: Requisitos funcionales y del sistema.</em></p>
 
 ---
 
