@@ -102,24 +102,6 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 
 | Grupo | ID | Descripción |
 | :--- | :--- | :--- |
-| **Sensores** | **1.1** | El sistema medirá periódicamente la temperatura interna del horno mediante un sensor analógico (NTC) / módulo térmico conectado al ADC del STM32. |
-| | **1.2** | El sistema utilizará un potenciómetro (ADC) para la regulación analógica fina de parámetros (ajuste de temperatura o intensidad de luz interna). |
-| **Interacción y Menú** | **2.1** | El sistema contará con un LCD (2x16 o 20x4) para navegar el menú interactivo de opciones (Selección de Modo, Ajuste de Temperatura, Temporizador). |
-| | **2.2** | El sistema contará con un teclado matricial/botones para la introducción de valores numéricos y confirmación de menú. |
-| | **2.3** | El sistema utilizará un grupo de **Dip Switches** para la selección directa del modo de fuentes de calor (Resistencia Superior, Inferior, Ambas, Convección/Grill). |
-| **Actuadores y Señalización**| **3.1** | El sistema controlará LEDs indicadores de estado operativo (Encendido, Calentando, Manteniendo Temperatura, Alarma). |
-| | **3.2** | El sistema aplicará control por PWM (o activación mediante relé/MOSFET) para dimerizar la luz del horno o regular la potencia de calentamiento. |
-| | **3.3** | El sistema contará con un **Buzzer** para emitir tonos de aviso (confirmación de teclas, finalización de ciclo de cocción, alertas de sobretemperatura). |
-| **Comunicación Remota** | **4.1** | El sistema incluirá un módulo Bluetooth **HM-10** (UART) para conectar con una App móvil. |
-| | **4.2** | La App permitirá enviar órdenes de inicio/parada, configurar recetas y recibir lecturas de temperatura en tiempo real. |
-| **Persistencia y Seguridad**| **5.1** | El sistema almacenará la configuración y recetas de usuario en memoria **EEPROM externa** (I2C) o **Flash interna**. |
-| | **5.2** | Si la temperatura medida supera un límite de seguridad, el sistema desactivará el calentamiento e indicará estado de **FALLA**. |
-| **Arquitectura de Firmware**| **6.1** | El firmware se desarrollará bajo esquema *Bare Metal* sin RTOS, como un sistema guiado por eventos (*Event-Triggered System*) con ciclo principal (*Super-Loop*) y *Tick* de 1 ms. |
-<p align="center"><em>Tabla 2.1: Requisitos del proyecto.</em></p>
-
-
-| Grupo | ID | Descripción |
-| :--- | :--- | :--- |
 | **Sensores** | 1.1 | El sistema medirá periódicamente la temperatura interna del horno mediante un sensor térmico (NTC / Termocupla) conectado al ADC o SPI del STM32. |
 | | 1.2 | El sistema utilizará un potenciómetro analógico (ADC) para el ajuste fino de intensidad de luz interna o de parámetros numéricos. |
 | **Interfaz LCD** | 2.1 | El sistema contará con una pantalla LCD (2x16 / 20x4) para visualización del menú navegable. |
@@ -150,7 +132,7 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 | | 9.2 | El sistema utilizará una base de tiempo estricta (*System Tick* de 1 ms) para la ejecución no bloqueante de tareas temporizadas. |
 | | 9.3 | La lógica de control principal se organizará mediante máquinas de estados finitos (*FSM*). |
 
-<p align="center"><em>Tabla 2.2: Tabla desarrolada: Requisitos funcionales y del sistema.</em></p>
+<p align="center"><em>Tabla 2.1: Requisitos del proyecto.</em></p>
 
 ---
 
