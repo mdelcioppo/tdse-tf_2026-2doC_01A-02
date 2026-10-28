@@ -3,7 +3,7 @@
   <img src="https://www.fi.uba.ar/images/logo-fiuba.png" alt="Logo FIUBA" width="40%">
 </p>
 
-# **Sistema Controlador de Horno Eléctrico Inteligente**
+# **Sistema Controlador de Horno Gastronómico Eléctrico Inteligente**
 
 **Autores:** Matías Del Cioppo, Luciano Andrés Ferrua y Lautaro Ignacio Franco  
 **Padrones:** 107453, 109609, 112572  
@@ -15,7 +15,7 @@
 ## 1. Selección del proyecto a implementar
 
 ### 1.1 Objetivo del proyecto y resultados esperados
-El objetivo principal de este proyecto es diseñar e implementar un **controlador de horno eléctrico inteligente** basado en la placa de desarrollo **STM32**. El sistema permitirá gestionar el proceso de cocción mediante la selección de modos de operación, control preciso de temperatura, temporización y ajuste del sentido/fuente de calor (superior, inferior, ambos, etc).
+El objetivo principal de este proyecto es diseñar e implementar un **controlador de horno gastronómico eléctrico inteligente** basado en la placa de desarrollo **STM32 NUCLEO-F103RB**. El sistema permitirá gestionar el proceso de cocción mediante la selección de modos de operación, control preciso de temperatura, temporización y ajuste del sentido/fuente de calor (superior, inferior, ambos, etc).
 
 Adicionalmente, el sistema ofrecerá:
 * **Conectividad remota vía Bluetooth (módulo HM-10):** Monitoreo y configuración de recetas o parámetros desde una aplicación móvil.
@@ -31,7 +31,7 @@ Este prototipo busca proporcionar un Producto Mínimo Viable (MVP) modular y ada
 
 Basados en nuestros conocimientos previos e investigación sobre el desarrollo que deseamos implementar, se evaluaron tres alternativas de prototipos para el control térmico de cocción:
 
-1. **Controlador Horno Inteligente Completo (STM32):** Control de temperatura con sensor en tiempo real, menú interactivo en LCD, conectividad Bluetooth (HM-10), dimming/luces, teclado, Dip Switches, alertas sonoras con Buzzer y almacenamiento de recetas/modos de cocción en Flash/EEPROM.
+1. **Controlador Horno Gastronómico Inteligente Completo (STM32):** Control de temperatura con sensor en tiempo real, menú interactivo en LCD, conectividad Bluetooth (HM-10), dimming/luces, teclado, Dip Switches, alertas sonoras con Buzzer y almacenamiento de recetas/modos de cocción en Flash/EEPROM.
 2. **Controlador Básico de Horno (STM32):** Control de temperatura ON/OFF mediante potenciómetro, lectura analógica sin menú interactivo ni conectividad remota.
 3. **Temporizador / Termostato genérico (Arduino UNO):** Control básico temporizado sin arquitectura no bloqueante ni integración con componentes embebidos de grado industrial.
 
@@ -46,7 +46,7 @@ Para la selección del proyecto se establecieron 6 criterios característicos po
 
 #### **Tabla 1.2.1: Comparación de alternativas de proyectos**
 Para la selección del proyecto se utilizaron los criterios numerados previamente y se evaluaron de la siguiente manera:
-| Proyectos | Controlador Horno Inteligente STM32 | Controlador Básico STM32 | Termostato Básico Arduino |
+| Proyectos | Controlador Horno Gastronómico Inteligente STM32 | Controlador Básico STM32 | Termostato Básico Arduino |
 | :--- | :---: | :---: | :---: |
 | **Criterio**| **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** |
 | Disponibilidad de Hardware (peso: 10) | 10 \| 100 | 10 \| 100 | 10 \| 100 |
@@ -61,7 +61,7 @@ Para la selección del proyecto se utilizaron los criterios numerados previament
 
 ### 1.3 Selección de proyecto
 
-De acuerdo con la ponderación de la Tabla 1.2.1, se eligió implementar el **Controlador Horno Inteligente Completo con STM32**. Esta alternativa aprovecha los periféricos de la placa STM32 (ADC, Timers/PWM, UART, I2C/SPI, GPIOs) e integra la lógica de control en un sistema alimentado por eventos (*Event-Triggered System*).
+De acuerdo con la ponderación de la Tabla 1.2.1, se eligió implementar el **Controlador Horno Gastronómico Inteligente Completo con STM32**. Esta alternativa aprovecha los periféricos de la placa STM32 (ADC, Timers/PWM, UART, I2C/SPI, GPIOs) e integra la lógica de control en un sistema alimentado por eventos (*Event-Triggered System*).
 
 #### **1.3.1 Diagrama en bloques del sistema**
 Para modelar las conexiones de periféricos con el microcontrolador, así cómo también para ejemplificar para el lector los diferentes componentes del prototipo, se diseño el siguiente diagrama en bloques del sistema: 
@@ -91,7 +91,7 @@ Como primeros competidores directos en el mercado local se identifican:
 
 #### Diferenciación y ventajas del prototipo desarrollado
 
-El **Sistema Controlador de Horno Eléctrico Inteligente** diseñado sobre la plataforma **STM32** se destaca por las siguientes ventajas competitivas:
+El **Sistema Controlador de Horno Gastronómico Eléctrico Inteligente** diseñado sobre la plataforma **STM32** se destaca por las siguientes ventajas competitivas:
 
 * **Autonomía y Persistencia Local (EEPROM / Flash):** A diferencia de las soluciones comerciales que dependen de servidores en la nube, el sistema almacena las recetas y perfiles de cocción de múltiples etapas directamente en la memoria **EEPROM externa (I2C) o Flash interna**. La curva térmica se ejecuta de forma autónoma sin riesgo de interrupción si se pierde la conexión Bluetooth.
 * **Interfaz de Usuario Híbrida y Accesible:** Combina un panel local completo (pantalla LCD 2x16/20x4, teclado matricial, potenciómetro analógico y **Dip Switches** para selección inmediata del modo de calor) con control y monitoreo remoto a través del módulo **HM-10 (BLE)**. El usuario mantiene el control absoluto tanto en modo manual como remoto.
