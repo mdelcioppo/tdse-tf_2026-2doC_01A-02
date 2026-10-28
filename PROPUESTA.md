@@ -138,7 +138,7 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 
 ### 2.2 Casos de uso
 
-A continuación se presentan 4 casos de usos que creemos de relevancia para dar una idea de funcionamiento del proyecto y sus diferentes alternativas al ser utilizado por el usuario.
+A continuación se presentan 3 casos de usos que creemos de relevancia para dar una idea de funcionamiento del proyecto y sus diferentes alternativas al ser utilizado por el usuario.
 
 #### **Caso de Uso 1: Configuración e inicio de cocción manual desde la interfaz local**
 
@@ -148,7 +148,7 @@ A continuación se presentan 4 casos de usos que creemos de relevancia para dar 
 | **Precondiciones** | El sistema está encendido en estado **IDLE/NORMAL**. El horno está a temperatura ambiente y la puerta cerrada. |
 | **Flujo Principal** | 1. El usuario configura los **Dip Switches** para elegir la distribución de calor (ej: Resistencia Superior + Inferior).<br>2. El usuario navega en el **LCD** con el teclado para fijar la temperatura objetivo y el tiempo de cocción.<br>3. El usuario utiliza el potenciómetro para ajustar la intensidad de iluminación interna.<br>4. El usuario confirma el inicio con el botón "Enter".<br>5. El sistema activa el control térmico, enciende los LEDs de calentamiento e inicia el temporizador.<br>6. Al finalizar el tiempo, el sistema apaga los elementos calefactores y hace sonar el **Buzzer**. |
 | **Flujos Alternativos** | **a. Alarma de Sobretemperatura:** Si la temperatura medida excede el límite máximo de seguridad, el sistema interrumpe el calentamiento, pasa a estado de **FALLA**, emite un tono continuo con el Buzzer y muestra la alerta en el LCD.<br>**b. Cancelación manual:** Si el usuario presiona el botón "Escape", el proceso se detiene y regresa al menú principal. |
-<p align="center"><em>Tabla 2.2.2: Caso de Uso 1 del proyecto.</em></p>
+<p align="center"><em>Tabla 2.2.1: Caso de Uso 1 del proyecto.</em></p>
 
 #### **Caso de Uso 2: Control y monitoreo remoto vía Bluetooth (App)**
 
@@ -158,7 +158,7 @@ A continuación se presentan 4 casos de usos que creemos de relevancia para dar 
 | **Precondiciones** | El módulo Bluetooth **HM-10** está emparejado correctamente con el dispositivo móvil. El sistema está encendido. |
 | **Flujo Principal** | 1. La aplicación solicita la lectura actual de temperatura e información de estado.<br>2. El microcontrolador responde vía UART con los datos estructurados.<br>3. El usuario selecciona una "Receta Predefinida" en la App y presiona "Iniciar Receta".<br>4. La App transmite la temperatura objetivo y el tiempo a través de comandos de texto por Bluetooth.<br>5. El sistema confirma la recepción mediante un tono breve en el **Buzzer**, actualiza la pantalla LCD y comienza el proceso. |
 | **Flujos Alternativos** | **a. Pérdida de Conexión BLE:** Si se desconecta la App durante una cocción en curso, el horno continúa ejecutando el perfil previamente cargado en memoria de forma segura. |
-<p align="center"><em>Tabla 2.2.3: Caso de Uso 2 del proyecto.</em></p>
+<p align="center"><em>Tabla 2.2.2: Caso de Uso 2 del proyecto.</em></p>
 
 #### **Caso de Uso 3: Interrupción remota de emergencia del proceso de cocción**
 
@@ -168,7 +168,7 @@ A continuación se presentan 4 casos de usos que creemos de relevancia para dar 
 | **Precondiciones** | El sistema está encendido y ejecutando un ciclo activo de cocción (calentamiento en curso). El módulo Bluetooth **HM-10** mantiene la conexión activa con la App del usuario. |
 | **Flujo Principal** | 1. El usuario presiona el botón de "Parada de Emergencia / Cancelar Cocción" en la aplicación móvil.<br>2. La App transmite un comando de interrupción crítica vía Bluetooth al microcontrolador.<br>3. El STM32 procesa la orden inmediatamente mediante la arquitectura por eventos (*Event-Triggered System*).<br>4. El microcontrolador desactiva las salidas de control de las resistencias (Relés/MOSFETs) y de la luz interna.<br>5. El sistema emite una secuencia sonora de advertencia breve mediante el **Buzzer** y actualiza el LCD mostrando el mensaje `"COCCIÓN CANCELADA"`.<br>6. El sistema regresa al estado de reposo (**IDLE/NORMAL**) de forma segura. |
 | **Flujos Alternativos** | **a. Pérdida de conexión en el momento del envío:** Si el comando no se transmite por falla de la señal Bluetooth, el usuario puede presionar el botón "Escape" o la tecla de parada en el panel local del horno para interrumpir la cocción de forma manual e inmediata.<br>**b. Cancelación automática por sobretemperatura:** Si la temperatura medida por el sensor excede el límite máximo de seguridad antes o durante la orden manual, el sistema aborta el ciclo de forma autónoma pasando a estado de **FALLA**. |
-<p align="center"><em>Tabla 2.2.4: Caso de Uso 3 del proyecto.</em></p>
+<p align="center"><em>Tabla 2.2.3: Caso de Uso 3 del proyecto.</em></p>
 
 
 
