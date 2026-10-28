@@ -46,7 +46,7 @@ Para la selección del proyecto se establecieron 6 criterios característicos po
 
 #### **Tabla 1.2.1: Comparación de alternativas de proyectos**
 Para la selección del proyecto se utilizaron los criterios numerados previamente y se evaluaron de la siguiente manera:
-| Proyectos | Horno Inteligente STM32 (Seleccionado) | Controlador Básico STM32 | Termostato Básico Arduino |
+| Proyectos | Horno Inteligente STM32 | Controlador Básico STM32 | Termostato Básico Arduino |
 | :--- | :---: | :---: | :---: |
 | **Criterio**| **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** |
 | Disponibilidad de Hardware (peso: 10) | 10 \| 100 | 10 \| 100 | 10 \| 100 |
