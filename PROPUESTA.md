@@ -31,7 +31,7 @@ Este prototipo busca proporcionar un Producto Mínimo Viable (MVP) modular y ada
 
 Basados en nuestros conocimientos previos e investigación sobre el desarrollo que deseamos implementar, se evaluaron tres alternativas de prototipos para el control térmico de cocción:
 
-1. **Horno Inteligente Completo (STM32):** Control de temperatura con sensor en tiempo real, menú interactivo en LCD, conectividad Bluetooth (HM-10), dimming/luces, teclado, Dip Switches, alertas sonoras con Buzzer y almacenamiento de recetas/modos de cocción en Flash/EEPROM.
+1. **Controlador Horno Inteligente Completo (STM32):** Control de temperatura con sensor en tiempo real, menú interactivo en LCD, conectividad Bluetooth (HM-10), dimming/luces, teclado, Dip Switches, alertas sonoras con Buzzer y almacenamiento de recetas/modos de cocción en Flash/EEPROM.
 2. **Controlador Básico de Horno (STM32):** Control de temperatura ON/OFF mediante potenciómetro, lectura analógica sin menú interactivo ni conectividad remota.
 3. **Temporizador / Termostato genérico (Arduino UNO):** Control básico temporizado sin arquitectura no bloqueante ni integración con componentes embebidos de grado industrial.
 
@@ -46,7 +46,7 @@ Para la selección del proyecto se establecieron 6 criterios característicos po
 
 #### **Tabla 1.2.1: Comparación de alternativas de proyectos**
 Para la selección del proyecto se utilizaron los criterios numerados previamente y se evaluaron de la siguiente manera:
-| Proyectos | Horno Inteligente STM32 | Controlador Básico STM32 | Termostato Básico Arduino |
+| Proyectos | Controlador Horno Inteligente STM32 | Controlador Básico STM32 | Termostato Básico Arduino |
 | :--- | :---: | :---: | :---: |
 | **Criterio**| **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** |
 | Disponibilidad de Hardware (peso: 10) | 10 \| 100 | 10 \| 100 | 10 \| 100 |
@@ -61,7 +61,7 @@ Para la selección del proyecto se utilizaron los criterios numerados previament
 
 ### 1.3 Selección de proyecto
 
-De acuerdo con la ponderación de la Tabla 1.2.1, se eligió implementar el **Horno Inteligente Completo con STM32**. Esta alternativa aprovecha los periféricos de la placa STM32 (ADC, Timers/PWM, UART, I2C/SPI, GPIOs) e integra la lógica de control en un sistema alimentado por eventos (*Event-Triggered System*).
+De acuerdo con la ponderación de la Tabla 1.2.1, se eligió implementar el **Controlador Horno Inteligente Completo con STM32**. Esta alternativa aprovecha los periféricos de la placa STM32 (ADC, Timers/PWM, UART, I2C/SPI, GPIOs) e integra la lógica de control en un sistema alimentado por eventos (*Event-Triggered System*).
 
 #### **1.3.1 Diagrama en bloques del sistema**
 Para modelar las conexiones de periféricos con el microcontrolador, así cómo también para ejemplificar para el lector los diferentes componentes del prototipo, se diseño el siguiente diagrama en bloques del sistema: 
