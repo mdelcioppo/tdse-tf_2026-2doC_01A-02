@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="https://www.fi.uba.ar/images/logo-fiuba.png" alt="Logo FIUBA" width="40%">
 </p>
@@ -169,6 +168,5 @@ A continuación se presentan 3 casos de usos que creemos de relevancia para dar 
 | **Flujo Principal** | 1. El usuario presiona el botón de "Parada de Emergencia / Cancelar Cocción" en la aplicación móvil.<br>2. La App transmite un comando de interrupción crítica vía Bluetooth al microcontrolador.<br>3. El STM32 procesa la orden inmediatamente mediante la arquitectura por eventos (*Event-Triggered System*).<br>4. El microcontrolador desactiva las salidas de control de las resistencias (Relés/MOSFETs) y de la luz interna.<br>5. El sistema emite una secuencia sonora de advertencia breve mediante el **Buzzer** y actualiza el LCD mostrando el mensaje `"COCCIÓN CANCELADA"`.<br>6. El sistema regresa al estado de reposo (**IDLE/NORMAL**) de forma segura. |
 | **Flujos Alternativos** | **a. Pérdida de conexión en el momento del envío:** Si el comando no se transmite por falla de la señal Bluetooth, el usuario puede presionar el botón "Escape" o la tecla de parada en el panel local del horno para interrumpir la cocción de forma manual e inmediata.<br>**b. Cancelación automática por sobretemperatura:** Si la temperatura medida por el sensor excede el límite máximo de seguridad antes o durante la orden manual, el sistema aborta el ciclo de forma autónoma pasando a estado de **FALLA**. |
 <p align="center"><em>Tabla 2.2.3: Caso de Uso 3 del proyecto.</em></p>
-
 
 
