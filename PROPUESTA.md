@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="https://www.fi.uba.ar/images/logo-fiuba.png" alt="Logo FIUBA" width="40%">
 </p>
