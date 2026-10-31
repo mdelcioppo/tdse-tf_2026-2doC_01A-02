@@ -44,8 +44,7 @@ Para la selección del proyecto se establecieron 6 criterios característicos po
 * **Costo (Peso: 5):** Accesibilidad económica de los módulos.
 * **Interés personal del grupo (Peso: 8):** Motivación por aplicar los conocimientos del curso en un electrodoméstico de uso cotidiano.
 
-#### **Tabla 1.2.1: Comparación de alternativas de proyectos**
-Para la selección del proyecto se utilizaron los criterios numerados previamente y se evaluaron de la siguiente manera:
+Para la selección del proyecto se utilizaron los criterios numerados previamente y se evaluaron como se indica en la Tabla 1.
 | Proyectos | Controlador Horno Gastronómico Inteligente STM32 | Controlador Básico STM32 | Termostato Básico Arduino |
 | :--- | :---: | :---: | :---: |
 | **Criterio**| **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** | **Puntaje \| P. Ponderado** |
@@ -56,19 +55,39 @@ Para la selección del proyecto se utilizaron los criterios numerados previament
 | Costo (peso: 5) | 7 \| 35 | 9 \| 45 | 9 \| 45 |
 | Interés Personal (peso: 8) | 10 \| 80 | 6 \| 48 | 4 \| 32 |
 | **Puntaje Total** | **439** | **354** | **314** |
-<p align="center"><em>Tabla 1.2.1: Comparación de alternativas de proyectos.</em></p>
+<p align="center"><em>Tabla 1: Comparación de alternativas de proyectos.</em></p>
 
 
 ### 1.3 Selección de proyecto
 
-De acuerdo con la ponderación de la Tabla 1.2.1, se eligió implementar el **Controlador Horno Gastronómico Inteligente Completo con STM32**. Esta alternativa aprovecha los periféricos de la placa STM32 (ADC, Timers/PWM, UART, I2C/SPI, GPIOs) e integra la lógica de control en un sistema alimentado por eventos (*Event-Triggered System*).
+De acuerdo con la ponderación de la Tabla 1, se eligió implementar el **Controlador Horno Gastronómico Inteligente Completo con STM32**. Esta alternativa aprovecha los periféricos de la placa STM32 (ADC, Timers/PWM, UART, I2C/SPI, GPIOs) e integra la lógica de control en un sistema alimentado por eventos (*Event-Triggered System*).
 
 #### **1.3.1 Diagrama en bloques del sistema**
-Para modelar las conexiones de periféricos con el microcontrolador, así cómo también para ejemplificar para el lector los diferentes componentes del prototipo, se diseño el siguiente diagrama en bloques del sistema: 
+Para modelar las conexiones de periféricos con el microcontrolador, así cómo también para ejemplificar para el lector los diferentes componentes del prototipo, se diseño el siguiente diagrama en bloques del sistema que se ilustra en la figura 1: 
 
 <img width="3458" height="1696" alt="diagrama_bloques_horno" src="https://github.com/user-attachments/assets/5cb5a1c7-a29f-4e47-aecb-1c4f25c56aa7" />
 
-<p align="center"><em>Figura 1.1: Ilustración del diagrama en bloques del horno eléctrico.</em></p>
+<p align="center"><em>Figura 1: Ilustración del diagrama en bloques del horno eléctrico.</em></p>
+
+El diagrama en bloques del sistema representa la arquitectura general de hardware del prototipo y la interconexión de sus principales módulos alrededor del microcontrolador **STM32 NUCLEO-F103RB**. Este esquema ilustra la distribución de flujo de datos y señales entre la etapa de entrada (recolección de datos y comandos del usuario), el núcleo de procesamiento central basado en una arquitectura guiada por eventos, la etapa de salidas y actuadores de potencia, y los periféricos de comunicación e interfaz no volátil. Se puede observar cómo se reutilizan las conexiones ya utilizadas en el desarrollo de los trabajos prácticos previos para cada uno de los periféricos.
+
+Se observa la subdivisión en tres módulos principales:
+##### **1. Módulo de Entradas y Sensores (Captura de datos)**
+* **Teclado 4x3 (`GPIO`):** Permite la navegación por el menú interactivo local, la selección de opciones y el ingreso manual de parámetros.
+* **Dip Switches (`GPIO`):** Entradas digitales para la selección directa e instantánea de la fuente de calor (resistencia superior, inferior, ambas o convector).
+* **Potenciómetro (`ADC`):** Lectura analógica a digital para el ajuste fino de parámetros térmicos o la regulación de la luz interna.
+* **Sensor de Temperatura (`ADC / SPI`):** Medición de la temperatura en tiempo real mediante una entrada analógica (termistor NTC) o bus SPI (termocupla Tipo K).
+
+##### **2. Módulo de Salidas y Actuadores (Acción y señalización)**
+* **Display LCD (`GPIO / I2C`):** Interfaz visual principal para la presentación del menú, temperaturas y temporizador. Puede ser gestionado directamente por GPIO (bus de 4 bits) o a través de un adaptador I2C.
+* **Buzzer Sonoro (`PWM`):** Emisión de señales acústicas (tonos de confirmación de teclas, melodía de fin de cocción y alarma continua de sobretemperatura).
+* **LEDs de Luz Interna (`GPIO`):** Control de la intensidad lumínica del recinto de cocción.
+* **LEDs Indicadores (`GPIO`):** Señalización discreta de estados del sistema (`IDLE`, `HEATING`, `SETPOINT OK` y `FALLA`).
+* **Actuador de Resistencias (`GPIO`):** Salidas digitales para conmutar las etapas de potencia (relés o MOSFETs) que alimentan los elementos calefactores.
+
+##### **3. Módulo de Comunicaciones y Memoria No Volátil**
+* **Módulo Bluetooth HM-10 (`UART` $\leftrightarrow$ `BLE`):** Enlace serie bidireccional (puerto UART) para intercambio de datos con la aplicación móvil mediante Bluetooth Low Energy (BLE).
+* **Almacenamiento de Recetas y Parámetros (`Flash Interna / I2C EEPROM`):** Memoria no volátil para el guardado y recuperación de recetas y configuraciones en la memoria Flash del STM32 o en una memoria EEPROM externa conectada vía bus I2C.
 
 
 ## 2. Elicitación de requisitos y casos de uso
@@ -98,7 +117,9 @@ El **Sistema Controlador de Horno Gastronómico Eléctrico Inteligente** diseña
 * **Arquitectura de Tiempo Real No Bloqueante (*Bare Metal*):** Su estructura basada en un sistema alimentado por eventos (*Event-Triggered System*), *Super-Loop* y *Tick* de 1 ms garantiza el procesamiento en tiempo real sin bloqueos, permitiendo un control térmico preciso, gestión inmediata de alarmas de seguridad con el **Buzzer** y la adición de periféricos por buses estándar (I2C, SPI, UART).
 * **Precio**: Los ejemplos comerciales nombrados, se encuentran entre los de precio más elevado para hornos de esas características debido a la posibilidad de interacción mediante WiFi o Bluetooth. El diseño de controlador presentado por el grupo 02, intenta **reducir costos, manteniendo y ampliando** las funcionalidades que hoy por hoy ofrece el mercado.
 
-Es decir que si bien se presenta un mercado competitivo en términos de alternativas, el diseño propio cuenta con ventajas a explotar y tiene una inserción posible en la industria debido a que no todas las funcionalidades propuestas están siendo ofrecidas por otras marcas o por lo menos no de manera conjunta como lo haría nuestro prototipo.
+Es decir que si bien se presenta un mercado competitivo en términos de alternativas, el diseño propio cuenta con ventajas a explotar y tiene una inserción posible en la industria debido a que no todas las funcionalidades propuestas están siendo ofrecidas por otras marcas o por lo menos no de manera conjunta como lo haría nuestro prototipo. A continuación, en la Tabla 2 se presentan los requisitos establecidos para el proyecto de implementación de un Sistema Controlador de Horno Gastronómico Eléctrico Inteligente.
+
+
 
 | Grupo | ID | Descripción |
 | :--- | :--- | :--- |
@@ -132,7 +153,7 @@ Es decir que si bien se presenta un mercado competitivo en términos de alternat
 | | 9.2 | El sistema utilizará una base de tiempo estricta (*System Tick* de 1 ms) para la ejecución no bloqueante de tareas temporizadas. |
 | | 9.3 | La lógica de control principal se organizará mediante máquinas de estados finitos (*FSM*). |
 
-<p align="center"><em>Tabla 2.1: Requisitos del proyecto.</em></p>
+<p align="center"><em>Tabla 2: Requisitos del proyecto.</em></p>
 
 ---
 
@@ -148,7 +169,7 @@ A continuación se presentan 3 casos de usos que creemos de relevancia para dar 
 | **Precondiciones** | El sistema está encendido en estado **IDLE/NORMAL**. El horno está a temperatura ambiente y la puerta cerrada. |
 | **Flujo Principal** | 1. El usuario configura los **Dip Switches** para elegir la distribución de calor (ej: Resistencia Superior + Inferior).<br>2. El usuario navega en el **LCD** con el teclado para fijar la temperatura objetivo y el tiempo de cocción.<br>3. El usuario utiliza el potenciómetro para ajustar la intensidad de iluminación interna.<br>4. El usuario confirma el inicio con el botón "Enter".<br>5. El sistema activa el control térmico, enciende los LEDs de calentamiento e inicia el temporizador.<br>6. Al finalizar el tiempo, el sistema apaga los elementos calefactores y hace sonar el **Buzzer**. |
 | **Flujos Alternativos** | **a. Alarma de Sobretemperatura:** Si la temperatura medida excede el límite máximo de seguridad, el sistema interrumpe el calentamiento, pasa a estado de **FALLA**, emite un tono continuo con el Buzzer y muestra la alerta en el LCD.<br>**b. Cancelación manual:** Si el usuario presiona el botón "Escape", el proceso se detiene y regresa al menú principal. |
-<p align="center"><em>Tabla 2.2.1: Caso de Uso 1 del proyecto.</em></p>
+<p align="center"><em>Tabla 3: Caso de Uso 1 del proyecto.</em></p>
 
 #### **Caso de Uso 2: Control y monitoreo remoto vía Bluetooth (App)**
 
@@ -158,7 +179,7 @@ A continuación se presentan 3 casos de usos que creemos de relevancia para dar 
 | **Precondiciones** | El módulo Bluetooth **HM-10** está emparejado correctamente con el dispositivo móvil. El sistema está encendido. |
 | **Flujo Principal** | 1. La aplicación solicita la lectura actual de temperatura e información de estado.<br>2. El microcontrolador responde vía UART con los datos estructurados.<br>3. El usuario selecciona una "Receta Predefinida" en la App y presiona "Iniciar Receta".<br>4. La App transmite la temperatura objetivo y el tiempo a través de comandos de texto por Bluetooth.<br>5. El sistema confirma la recepción mediante un tono breve en el **Buzzer**, actualiza la pantalla LCD y comienza el proceso. |
 | **Flujos Alternativos** | **a. Pérdida de Conexión BLE:** Si se desconecta la App durante una cocción en curso, el horno continúa ejecutando el perfil previamente cargado en memoria de forma segura. |
-<p align="center"><em>Tabla 2.2.2: Caso de Uso 2 del proyecto.</em></p>
+<p align="center"><em>Tabla 4: Caso de Uso 2 del proyecto.</em></p>
 
 #### **Caso de Uso 3: Interrupción remota de emergencia del proceso de cocción**
 
@@ -168,4 +189,4 @@ A continuación se presentan 3 casos de usos que creemos de relevancia para dar 
 | **Precondiciones** | El sistema está encendido y ejecutando un ciclo activo de cocción (calentamiento en curso). El módulo Bluetooth **HM-10** mantiene la conexión activa con la App del usuario. |
 | **Flujo Principal** | 1. El usuario presiona el botón de "Parada de Emergencia / Cancelar Cocción" en la aplicación móvil.<br>2. La App transmite un comando de interrupción crítica vía Bluetooth al microcontrolador.<br>3. El STM32 procesa la orden inmediatamente mediante la arquitectura por eventos (*Event-Triggered System*).<br>4. El microcontrolador desactiva las salidas de control de las resistencias (Relés/MOSFETs) y de la luz interna.<br>5. El sistema emite una secuencia sonora de advertencia breve mediante el **Buzzer** y actualiza el LCD mostrando el mensaje `"COCCIÓN CANCELADA"`.<br>6. El sistema regresa al estado de reposo (**IDLE/NORMAL**) de forma segura. |
 | **Flujos Alternativos** | **a. Pérdida de conexión en el momento del envío:** Si el comando no se transmite por falla de la señal Bluetooth, el usuario puede presionar el botón "Escape" o la tecla de parada en el panel local del horno para interrumpir la cocción de forma manual e inmediata.<br>**b. Cancelación automática por sobretemperatura:** Si la temperatura medida por el sensor excede el límite máximo de seguridad antes o durante la orden manual, el sistema aborta el ciclo de forma autónoma pasando a estado de **FALLA**. |
-<p align="center"><em>Tabla 2.2.3: Caso de Uso 3 del proyecto.</em></p>
+<p align="center"><em>Tabla 5: Caso de Uso 3 del proyecto.</em></p>
