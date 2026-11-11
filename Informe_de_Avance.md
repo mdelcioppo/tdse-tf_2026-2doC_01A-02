@@ -68,7 +68,7 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
-| 5.1 | El sistema controlará las resistencias de calentamiento (Superior/Inferior) mediante salidas digitales (GPIO) hacia relés/MOSFETs. | 🔴 | |
+| 5.1 | El sistema controlará las resistencias de calentamiento (Superior/Inferior) mediante salidas digitales (GPIO) hacia relés/MOSFETs. | 🔴 |🔴|
 | 5.2 | El sistema aplicará modulación por ancho de pulso (PWM) para la regulación dimérica de la luz interna del horno. | 🔴 | |
 
 #### **Buzzer**
