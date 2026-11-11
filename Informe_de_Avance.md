@@ -16,9 +16,9 @@
 
 ## 1. Introducción
 
-En este documento se detalla el estado de avance del Trabajo Final respecto de los requisitos definidos en la sección 2 de [PROPUESTA.md](PROPUESTA.md) (Tabla 2.1). Cada requisito se marca con uno de los estados de la Tabla 1.1.
+En este documento se detalla el estado de avance del Trabajo Final respecto de los requisitos definidos en la sección 2 de [PROPUESTA.md](PROPUESTA.md) (Tabla 2.1). Cada requisito se marca con uno de los estados de la Tabla 1.
 
-<p align="center"><em>Tabla 1.1: Referencia de estados de avance.</em></p>
+<p align="center"><em>Tabla 1: Referencia de estados de avance.</em></p>
 
 | Estado | Descripción |
 | :---: | :--- |
@@ -108,7 +108,7 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 
 ## 3. Estado de los casos de uso
 
-<p align="center"><em>Tabla 3.1: Estado de avance de los casos de uso definidos en la propuesta.</em></p>
+<p align="center"><em>Tabla 3: Estado de avance de los casos de uso definidos en la propuesta.</em></p>
 
 | Caso de uso | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
