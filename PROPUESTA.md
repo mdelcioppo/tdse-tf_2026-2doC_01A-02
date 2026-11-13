@@ -16,7 +16,7 @@
 
 ### 1.1 Objetivo del proyecto y resultados esperados
 El objetivo principal de este proyecto es diseñar e implementar un **controlador de horno gastronómico eléctrico inteligente** basado en la placa de desarrollo **STM32 NUCLEO-F103RB**. El sistema permitirá gestionar el proceso de cocción mediante la selección de modos de operación, control preciso de temperatura, temporización y ajuste del sentido/fuente de calor (superior, inferior, ambos, etc).
-
+ 
 Adicionalmente, el sistema ofrecerá:
 * **Conectividad remota vía Bluetooth (módulo HM-10):** Monitoreo y configuración de recetas o parámetros desde una aplicación móvil.
 * **Interfaz de usuario local e interactiva:** Basada en pantalla LCD 2x16/20x4, teclado matricial de entrada, Dip Switches de selección rápida y potenciómetro para ajuste de intensidad de luz interna o regulación fina de temperatura.
