@@ -68,7 +68,7 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
-| 5.1 | El sistema controlará las resistencias de calentamiento (Superior/Inferior) mediante salidas digitales (GPIO) hacia relés/MOSFETs. | 🔴 |🔴|
+| 5.1 | El sistema controlará las resistencias de calentamiento (Superior/Inferior) mediante salidas digitales (GPIO) hacia relés/MOSFETs. | 🔴 |Al calcular la corriente máxima soportada por la placa, entendimos que la implementación de réles no era posible. Se decidió reemplazarlos por leds que den indicación de que vela esta encendida a cada momento, que es más acorde a lo aprendido en la materia y al alcance de la placa.|
 | 5.2 | El sistema aplicará modulación por ancho de pulso (PWM) para la regulación dimérica de la luz interna del horno. | 🔴 | |
 
 #### **Buzzer**
