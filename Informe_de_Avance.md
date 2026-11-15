@@ -16,7 +16,7 @@
 
 ## 1. Introducción
 
-En este documento se detalla el estado de avance del Trabajo Final respecto de los requisitos definidos en la sección 2 de [PROPUESTA.md](PROPUESTA.md) (Tabla 2.1). Cada requisito se marca con uno de los estados de la Tabla 1.
+En este documento se detalla el estado de avance del Trabajo Final respecto de los requisitos definidos en la sección 2 de [PROPUESTA.md](PROPUESTA.md) (Tabla 2). Cada requisito se marca con uno de los estados de la Tabla 1.
 
 <p align="center"><em>Tabla 1: Referencia de estados de avance.</em></p>
 
@@ -34,14 +34,14 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
-| 1.1 | El sistema medirá periódicamente la temperatura interna del horno mediante un sensor térmico (NTC / Termocupla) conectado al ADC o SPI del STM32. | 🔴 | |
-| 1.2 | El sistema utilizará un potenciómetro analógico (ADC) para el ajuste fino de intensidad de luz interna o de parámetros numéricos. | 🔴 | |
+| 1.1 | El sistema medirá periódicamente la temperatura interna del horno mediante un sensor térmico (NTC) conectado al ADC o SPI del STM32. | 🔴 | |
+| 1.2 | El sistema utilizará un potenciómetro analógico (ADC) para el ajuste fino de intensidad de luz interna. | 🔴 | |
 
 #### **Interfaz LCD**
 
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
-| 2.1 | El sistema contará con una pantalla LCD (2x16 / 20x4) para visualización del menú navegable. | 🔴 | |
+| 2.1 | El sistema contará con una pantalla LCD para visualización del menú navegable. | 🔴 | |
 | 2.2 | El sistema mostrará en el LCD una pantalla de bienvenida y estado en reposo (`IDLE`) al encender. | 🔴 | |
 | 2.3 | El sistema mostrará en el LCD la temperatura actual medida y la temperatura objetivo durante el proceso de cocción. | 🔴 | |
 | 2.4 | El sistema mostrará en el LCD el tiempo restante del temporizador de cocción. | 🔴 | |
@@ -120,7 +120,9 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 
 ## 4. Dificultades encontradas y ajustes de alcance
 
-*(Completar)*
+Para lograr evaluar cada módulo a implementar se conectaron todos los periféricos en un protoboard y a la STM32, para poder evaluar el funcionamiento y los cambios necesarios, previo a soldar en una placa experimental. En este momento surgió la primera dificultad, debido a que se calcularon las corrientes entrantes y salientes a la placa y se determinó la imposibilidad de implementar los Reles.
+Como solución, se decidió colocar Leds indicadores para cada una de las velas y su encendido.
+En segundo lugar, se presentó la dificultad ...
 
 ## 5. Próximos pasos
 
