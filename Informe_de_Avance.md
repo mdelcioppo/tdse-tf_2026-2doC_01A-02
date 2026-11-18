@@ -42,8 +42,8 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
 | 2.1 | El sistema contará con una pantalla LCD para visualización del menú navegable. | 🟢 | |
-| 2.2 | El sistema mostrará en el LCD una pantalla de bienvenida y estado en reposo (`IDLE`) al encender. | 🟡 | |
-| 2.3 | El sistema mostrará en el LCD la temperatura actual medida y la temperatura objetivo durante el proceso de cocción. | 🟡 | |
+| 2.2 | El sistema mostrará en el LCD una pantalla de bienvenida y estado en reposo (`IDLE`) al encender. | 🟢 | |
+| 2.3 | El sistema mostrará en el LCD la temperatura actual medida y la temperatura objetivo durante el proceso de cocción. | 🟢 | |
 | 2.4 | El sistema mostrará en el LCD el tiempo restante del temporizador de cocción. | 🟡 | |
 | 2.5 | El sistema mostrará un mensaje de alerta explícito en el LCD cuando ocurra una sobretemperatura o falla. | 🟡 | |
 
@@ -53,7 +53,7 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 | :---: | :--- | :---: | :--- |
 | 3.1 | El sistema contará con un teclado matricial/botones (`Enter`, `Next`, `Escape`) para la navegación del menú y confirmación de valores. | 🟢 | |
 | 3.2 | El sistema implementará filtrado de antirrebote (*debounce*) por software para todos los botones de entrada. | 🟢 | |
-| 3.3 | El sistema contará con un bloque de Dip Switches para la selección directa e instantánea de la fuente de calor (Superior, Inferior, Ambas, Convección). | 🟡 | |
+| 3.3 | El sistema contará con un bloque de Dip Switches para la selección directa e instantánea de la fuente de calor (Superior, Inferior, Ambas, Convección). | 🟢 | |
 
 #### **Indicadores luminosos**
 
@@ -76,7 +76,7 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
 | 6.1 | El sistema emitirá una melodía corta con el Buzzer al confirmar la selección de un menú o inicio de cocción. | 🟡 | |
-| 6.2 | El sistema emitirá un patrón sonoro repetitivo con el Buzzer al finalizar el tiempo del temporizador de cocción. | 🟡 | |
+| 6.2 | El sistema emitirá un patrón sonoro repetitivo con el Buzzer al finalizar el tiempo del temporizador de cocción. | 🟢 | |
 | 6.3 | El sistema emitirá un tono continuo de advertencia acústica cuando se detecte sobretemperatura o estado de FALLA. | 🟡 | |
 
 #### **Comunicación BLE**
