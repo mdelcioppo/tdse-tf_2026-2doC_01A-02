@@ -109,7 +109,8 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 Para lograr evaluar cada módulo a implementar se conectaron todos los periféricos en un protoboard y a la STM32, para poder evaluar el funcionamiento y los cambios necesarios, previo a soldar en una placa experimental. En este momento surgió la primera dificultad, debido a que se calcularon las corrientes entrantes y salientes a la placa y se determinó la imposibilidad de implementar los Reles.
 Como solución, se decidió colocar Leds indicadores para cada una de las velas y su encendido.
 En segundo lugar, se presentó la posibilidad de unificar los leds indicadores en un solo módulo LED que ya había sido usado en TPs anteriores y se decidió eso para reutilizar el código para simplificar la resolución.
-Finalmente para las pruebas, se requirieron hacer conexione un tanto difíciles, pero se logró. Se adjunta un ejemplo de uso del prototipo en una de sus pruebas: 
+Finalmente para las pruebas, se requirieron hacer conexione un tanto difíciles, pero se logró. Se adjunta un ejemplo de uso del prototipo en una de sus pruebas:  https://drive.google.com/drive/folders/1ZyYUTGAAnOTyrctYwx_wdTOUeB4koOtX
+(acceder con email fiuba)
 
 ## 4. Próximos pasos
 
