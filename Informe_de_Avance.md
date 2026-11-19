@@ -44,8 +44,8 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 | 2.1 | El sistema contará con una pantalla LCD para visualización del menú navegable. | 🟢 | |
 | 2.2 | El sistema mostrará en el LCD una pantalla de bienvenida y estado en reposo (`IDLE`) al encender. | 🟢 | |
 | 2.3 | El sistema mostrará en el LCD la temperatura actual medida y la temperatura objetivo durante el proceso de cocción. | 🟢 | |
-| 2.4 | El sistema mostrará en el LCD el tiempo restante del temporizador de cocción. | 🟡 | |
-| 2.5 | El sistema mostrará un mensaje de alerta explícito en el LCD cuando ocurra una sobretemperatura o falla. | 🟡 | |
+| 2.4 | El sistema mostrará en el LCD el tiempo restante del temporizador de cocción. | 🟡 | Se implementó, pero aún no se probo.  |
+| 2.5 | El sistema mostrará un mensaje de alerta explícito en el LCD cuando ocurra una sobretemperatura o falla. | 🟡 | Se implementó, pero aún no se probo. |
 
 #### **Entradas / Controles**
 
@@ -75,9 +75,9 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
-| 6.1 | El sistema emitirá una melodía corta con el Buzzer al confirmar la selección de un menú o inicio de cocción. | 🟡 | |
+| 6.1 | El sistema emitirá una melodía corta con el Buzzer al confirmar la selección de un menú o inicio de cocción. | 🟡 | Se debe configurar la melodía.|
 | 6.2 | El sistema emitirá un patrón sonoro repetitivo con el Buzzer al finalizar el tiempo del temporizador de cocción. | 🟢 | |
-| 6.3 | El sistema emitirá un tono continuo de advertencia acústica cuando se detecte sobretemperatura o estado de FALLA. | 🟡 | |
+| 6.3 | El sistema emitirá un tono continuo de advertencia acústica cuando se detecte sobretemperatura o estado de FALLA. | 🟡 | Aún no se logró configurar el tono elegido.|
 
 #### **Comunicación BLE**
 
@@ -85,8 +85,8 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 | :---: | :--- | :---: | :--- |
 | 7.1 | El sistema se comunicará mediante el módulo HM-10 (UART) con la aplicación móvil. | 🟢 | |
 | 7.2 | El sistema enviará periódicamente a la App la lectura de temperatura interna y el estado del temporizador. | 🟢 | |
-| 7.3 | El sistema podrá recibir desde la App comandos de inicio, pausa y parada de emergencia de la cocción. | 🟡 | |
-| 7.4 | El sistema podrá recibir desde la App perfiles o parámetros de recetas predefinidas. | 🟢 | |
+| 7.3 | El sistema podrá recibir desde la App comandos de inicio, pausa y parada de emergencia de la cocción. | 🟡 |Aún no se logró que el ingreso de datos y recepción de los mismos generen la ejecución del comando ingresado.|
+| 7.4 | El sistema podrá recibir desde la App perfiles o parámetros de recetas predefinidas. | 🟡 | |
 | 7.5 | El sistema notificará a la App cuando se produzca una alarma de sobretemperatura o cancelación. | 🟢 | |
 
 #### **Memoria (EEPROM / Flash)**
@@ -94,7 +94,7 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
 | 8.1 | El sistema almacenará la configuración de recetas de usuario en memoria Flash interna. | 🟢 |Se eligió utilizar la Flash Interna |
-| 8.2 | El sistema recuperará la última configuración válida almacenada en la Flash durante la secuencia de inicio de firmware. | 🟡 | |
+| 8.2 | El sistema recuperará la última configuración válida almacenada en la Flash durante la secuencia de inicio de firmware. | 🟢 | |
 
 #### **Arquitectura de firmware**
 
