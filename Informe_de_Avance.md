@@ -93,7 +93,7 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 
 | Req ID | Descripción | Estado | Observaciones |
 | :---: | :--- | :---: | :--- |
-| 8.1 | El sistema almacenará la configuración de recetas de usuario en memoria Flash interna. | 🟢 |Se eligió utilizar la Flash Interna y no EEPROM externa. |
+| 8.1 | El sistema almacenará la configuración de recetas de usuario en memoria Flash interna. | 🟢 |Se eligió utilizar la Flash Interna y no EEPROM externa, para evitar más conexiones. |
 | 8.2 | El sistema recuperará la última configuración válida almacenada en la Flash durante la secuencia de inicio de firmware. | 🟢 | |
 
 #### **Arquitectura de firmware**
@@ -106,14 +106,15 @@ En este documento se detalla el estado de avance del Trabajo Final respecto de l
 
 ## 3. Dificultades encontradas y ajustes de alcance
 
-Para lograr evaluar cada módulo a implementar se conectaron todos los periféricos en un protoboard y a la STM32, para poder evaluar el funcionamiento y los cambios necesarios, previo a soldar en una placa experimental. En este momento surgió la primera dificultad, debido a que se calcularon las corrientes entrantes y salientes a la placa y se determinó la imposibilidad de implementar los Reles.
-Como solución, se decidió colocar Leds indicadores para cada una de las velas y su encendido.
-En segundo lugar, se presentó la posibilidad de unificar los leds indicadores en un solo módulo LED que ya había sido usado en TPs anteriores y se decidió eso para reutilizar el código para simplificar la resolución.
+Para lograr evaluar cada módulo a implementar, su funcionamiento y los cambios necesarios, se conectaron todos los periféricos en un protoboard y a la STM32, previo a soldar en una placa experimental. En este momento surgió la primera dificultad, debido a que se calcularon las corrientes entrantes y salientes a la placa y se determinó la imposibilidad de implementar los Reles, ya que para un correcto funcionamiento de los mismos se superaba el umbral máximo indicado en la datasheet. Como solución, se decidió colocar leds indicadores para cada una de las velas y su encendido, los cuáles ya conocemos su forma de interactuar con la placa y requieren una corriente significativamente menor. Con esta modificación en el diseño se recalcularon las corrientes y se verificó que nos encontrábamos en el rango de uso apropiado.
+
+En segundo lugar, se presentó la posibilidad de unificar los leds indicadores originales (IDLE, HEATING, SET POINT OK) en un solo módulo LED (RGB) que ya había sido usado en trabajos prácticos anteriores y se decidió eso para reutilizar el código para simplificar la resolución.
+
 Finalmente para las pruebas, se requirieron hacer conexiones un tanto difíciles, pero se logró. Se adjunta un ejemplo de uso del prototipo en una de sus pruebas:  https://drive.google.com/drive/folders/1ZyYUTGAAnOTyrctYwx_wdTOUeB4koOtX
 (acceder con email fiuba)
 
 ## 4. Próximos pasos
 
-En primer lugar se terminará el código para la prueba de cada uno de los módulos y una vez verificado el funcionamiento del mismo y todos los periféricos.
-Se diseñara un PCB para poder armar el prototipo de manera estable y según los requisitos del proyecto, además se continuará buscando mejoras posibles para que el MVP (mínimo producto viable).
+En primer lugar se terminará el código para la prueba de cada uno de los módulos y una vez verificado el funcionamiento del mismo y todos los periféricos, se evaluará si se debe modificar algún detalle del diseño.
+Una vez finalizada la etapa de prueba, se diseñará un PCB para poder armar el prototipo de manera estable y según los requisitos del proyecto, además se continuará buscando mejoras posibles para que el MVP (mínimo producto viable) sea lo más fehaciente a un modelo real.
 Finalmente, se intentará finalizar el proyecto para ser presentado en las próximas fechas de final.
